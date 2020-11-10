@@ -11,7 +11,7 @@ if (document.readyState !== "loading") {
 }
 
 function initializeCode() {
-  let player = "X";
+  let player = "x";
   const boardsize = 5;
   var board = new Array(boardsize);
   for (let i = 0; i < board.length; i++) {
@@ -43,10 +43,10 @@ function initializeCode() {
     document.getElementById(id).innerHTML = player;
 
     checkForWin();
-    if (player === "X") {
-      player = "O";
+    if (player === "x") {
+      player = "o";
     } else {
-      player = "X";
+      player = "x";
     }
 
     function checkForWin() {
@@ -66,7 +66,7 @@ function initializeCode() {
         }
       }
       if (c === 5) {
-        alert(player + " has won!");
+        win(player);
       }
       for (var i = minY, c = 0; i <= maxY; i++) {
         if (board[x][i] === player) {
@@ -74,7 +74,7 @@ function initializeCode() {
         }
       }
       if (c === 5) {
-        alert(player + " has won!");
+        win(player);
       }
 
       let minChangeMin = x - minX < y - minY ? x - minX : y - minY;
@@ -89,7 +89,7 @@ function initializeCode() {
         }
       }
       if (c === 5) {
-        alert(player + " has won!");
+        win(player);
       }
 
       minChangeMin = maxX - x < y - minY ? maxX - x : y - minY;
@@ -104,8 +104,13 @@ function initializeCode() {
         }
       }
       if (c === 5) {
-        alert(player + " has won!");
+        win(player);
       }
+    }
+
+    function win(player) {
+      if (player === "x") alert("Player 1 won!");
+      else alert("Player 2 won!");
     }
   }
 }
