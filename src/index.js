@@ -12,7 +12,7 @@ if (document.readyState !== "loading") {
 
 function initializeCode() {
   let player = "X";
-  const boardsize = 10;
+  const boardsize = 5;
   var board = new Array(boardsize);
   for (let i = 0; i < board.length; i++) {
     board[i] = new Array(boardsize);
