@@ -1,12 +1,22 @@
 body {
-  font-family: sans-serif;
+  font-family: Helvetica;
 }
 table {
   border: 1px solid #000000;
+  border-collapse: collapse;
 }
 td {
   border: 1px solid #000000;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   text-align: center;
+  font-size: 30px;
+}
+
+td.x {
+  background-color: rgb(124, 252, 0);
+}
+
+td.o {
+  background-color: rgb(250, 128, 114);
 }
