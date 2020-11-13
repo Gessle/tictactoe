@@ -37,6 +37,28 @@ function initializeCode() {
 
   document.getElementById("board").appendChild(node);
 
+  var id;
+  setTimer();
+  function setTimer() {
+    var elem = document.getElementById("myBar");
+    clearInterval(id);
+    var width = 1;
+    id = setInterval(turn, 100);
+    function turn() {
+      if (width >= 100) {
+        if (player === "x") {
+          player = "o";
+        } else {
+          player = "x";
+        }
+        setTimer();
+      } else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+
   function cellClicked(id) {
     //console.log(id);
     if (document.getElementById(id).innerHTML !== "") return;
@@ -44,6 +66,7 @@ function initializeCode() {
     document.getElementById(id).setAttribute("class", player);
 
     checkForWin();
+    setTimer();
     if (player === "x") {
       player = "o";
     } else {
