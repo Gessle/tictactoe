@@ -19,13 +19,15 @@ function initializeCode() {
   }
   //console.log(board);
 
-  const node = document.createElement("table");
+  const node = document.getElementById("board");
 
   for (let i = 0; i < boardsize; i++) {
-    let row = document.createElement("tr");
+    let row = document.createElement("div");
+    row.setAttribute("class", "row");
     for (let j = 0; j < boardsize; j++) {
-      let cell = document.createElement("td");
+      let cell = document.createElement("div");
       cell.setAttribute("id", j + "-" + i);
+      cell.setAttribute("class", "col s2 cell valign-wrapper");
       cell.onclick = function () {
         cellClicked(this.id);
       };
@@ -35,12 +37,10 @@ function initializeCode() {
     node.appendChild(row);
   }
 
-  document.getElementById("board").appendChild(node);
-
   var id;
   setTimer();
   function setTimer() {
-    var elem = document.getElementById("myBar");
+    var elem = document.getElementById("progressBar");
     clearInterval(id);
     var width = 1;
     id = setInterval(turn, 100);
@@ -62,8 +62,15 @@ function initializeCode() {
   function cellClicked(id) {
     //console.log(id);
     if (document.getElementById(id).innerHTML !== "") return;
-    document.getElementById(id).innerHTML = player;
-    document.getElementById(id).setAttribute("class", player);
+
+    let sign = document.createElement("div");
+    sign.classList.add("center-align");
+    sign.style.width = "100%";
+    sign.innerHTML = player;
+
+    document.getElementById(id).appendChild(sign);
+
+    document.getElementById(id).classList.add(player);
 
     checkForWin();
     setTimer();

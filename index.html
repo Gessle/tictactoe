@@ -4,12 +4,18 @@
     <title>Tic tac toe</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
 
   <body>
-    <div id="board"></div>
-    <div class="w3-light-grey">
-      <div id="myBar" class="w3-green" style="height: 24px; width: 0;"></div>
+    <div class="container" id="board">
+      <div class="progress">
+        <div id="progressBar" class="determinate" style="width: 0%;"></div>
+      </div>
     </div>
 
     <script src="src/index.js"></script>
